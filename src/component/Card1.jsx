@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { myContext } from "../App";
+import Navbar from "../Navbar";
 
 const Card1 = () => {
   const [data, setData] = useContext(myContext);
@@ -36,55 +37,7 @@ const Card1 = () => {
   return (
     <div>
       <div className="container">
-        <nav className="navbar navbar-expand-lg  bg-warning ">
-          <div className="container px-4 px-lg-5">
-            <a className="navbar-brand " href="#!">
-              SmartPhones
-            </a>
-            <button
-              className="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span className="navbar-toggler-icon"></span>
-            </button>
-            <div
-              className="collapse navbar-collapse"
-              id="navbarSupportedContent"
-            >
-              <ul className="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4"></ul>
-              <form className="d-flex">
-                <button class="btn btn-outline-dark m-1" type="submit">
-                  <i
-                    class="fa-solid fa-cart-shopping p-1"
-                    style={{ color: "#b399ff" }}
-                  ></i>
-                  Price
-                  <span class="badge bg-dark text-white ms-1 rounded-pill">
-                    {totalPrice}
-                  </span>
-                </button>
-                <button class="btn btn-outline-dark m-1" type="submit">
-                  <i
-                    class="fa-solid fa-cart-shopping p-1"
-                    onClick={() => {
-                      totalQuantity(5);
-                    }}
-                    style={{ color: "#b399ff" }}
-                  ></i>
-                  Cart
-                  <span class="badge bg-dark text-white ms-1 rounded-pill ">
-                    {totalQuantity}
-                  </span>
-                </button>
-              </form>
-            </div>
-          </div>
-        </nav>
+        <Navbar totalPrice={totalPrice} totalQuantity={totalQuantity}/>
         {data.map((item, index) => {
           return (
             <>
@@ -94,12 +47,20 @@ const Card1 = () => {
                   style={{ maxwidth: "540px" }}
                 >
                   <div class="row g-0">
-                    <div class="col-md-4">
-                      <img
-                        src={item.thumbnail}
+                 
+                    <div class="col-md-4 mt-5">
+                     <img src={item.thumbnail} alt="img" />
+                     {/* {item.images.map((img,index)=>{
+                      return(
+                        <div key={index}>
+                            <img
+                        src={img.images}
                         class="img-fluid rounded-start h-100"
                         alt="img"
                       />
+                        </div>
+                      )
+                     })} */}
                     </div>
                     <div class="col-md-8">
                       <div class="card-body">

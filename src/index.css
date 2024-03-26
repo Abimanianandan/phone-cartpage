@@ -2,10 +2,12 @@ body{
   background-color: black;
 }
 .navbar{
-  
+  position: sticky;
+  top: 0px;
   border-radius: 20px;
 }
 .card{
   border-radius: 20px;
+  
 }
 
